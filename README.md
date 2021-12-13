@@ -33,6 +33,11 @@ yarn add react-native-blob-util
 
 ### ChangeLog
 
+v1.1.0
+
+### BREAKING CHANGES:
+1. Remove `rn-fetch-blob` for `react-native-blob-util` because of [this issue](https://github.com/RonRadtke/react-native-blob-util/issues/86).
+
 v1.0.7
 
 1. fix Strange error
