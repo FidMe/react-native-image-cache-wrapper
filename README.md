@@ -33,6 +33,10 @@ yarn add react-native-blob-util
 
 ### ChangeLog
 
+v1.1.1
+
+1. Remove warning by renaming ```componentWillReceiveProps``` to ```UNSAFE_componentWillReceiveProps```
+
 v1.1.0
 
 ### BREAKING CHANGES:
