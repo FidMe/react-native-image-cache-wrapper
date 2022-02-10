@@ -148,7 +148,7 @@ export default class CachedImage extends Component {
         this._mounted = true;
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         const { source } = nextProps;
 
         if (source !== this.props.source) { this.setState({...this.props, source: source}) }
