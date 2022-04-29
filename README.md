@@ -36,10 +36,6 @@ _Notice: if you use RN 0.60+, please use react-native-blob-util v0.10.16_
 
 ### ChangeLog
 
-v1.1.2
-
-1. Add import `react-native-fast-image` as dependency and default lib for the Image API
-
 v1.1.1
 
 1. Remove warning by renaming `componentWillReceiveProps` to `UNSAFE_componentWillReceiveProps`

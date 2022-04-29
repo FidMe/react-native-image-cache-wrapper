@@ -7,10 +7,9 @@
  */
 "use strict";
 
-import { ImageBackground, Platform, View } from "react-native";
+import { Image, ImageBackground, Platform, View } from "react-native";
 import React, { Component } from "react";
 
-import Image from "react-native-fast-image";
 import ReactNativeBlobUtil from "react-native-blob-util";
 
 const SHA1 = require("crypto-js/sha1");
