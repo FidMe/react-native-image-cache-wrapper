@@ -1,18 +1,20 @@
 # react-native-image-cache-wrapper - Strange error fixed version - Алдаа зассан хувилбар
+
 [![npm](https://img.shields.io/npm/v/react-native-image-cache-wrapper.svg?style=flat-square)](https://www.npmjs.com/package/react-native-image-cache-wrapper)
 
 The best react native image cache wrapper.
 
 ### Feature
 
-* the same usage with ```<Image/>``` and ```<ImageBackground/>```
-* can set activity indicator
-* cache images with expiration
-* clear one cache or all cache files
-* support getSize() and prefetch()
-* support cache base64 data to local
+- the same usage with `<Image/>` and `<ImageBackground/>`
+- can set activity indicator
+- cache images with expiration
+- clear one cache or all cache files
+- support getSize() and prefetch()
+- support cache base64 data to local
 
 ### Installation
+
 We use [`react-native-blob-util`](https://github.com/FidMe/react-native-image-cache-wrapper) to handle file system access in this package,
 So you should install react-native-image-cache-wrapper and react-native-blob-util both.
 
@@ -22,24 +24,30 @@ npm install react-native-image-cache-wrapper --save
 npm install react-native-blob-util --save
 react-native link react-native-blob-util
 ```
+
 or use yarn
 
 ```
 yarn add react-native-image-cache-wrapper
 yarn add react-native-blob-util
 ```
-*Notice: if you use RN 0.60+, please use react-native-blob-util v0.10.16*
 
+_Notice: if you use RN 0.60+, please use react-native-blob-util v0.10.16_
 
 ### ChangeLog
 
+v1.1.2
+
+1. Add import `react-native-fast-image` as dependency and default lib for the Image API
+
 v1.1.1
 
-1. Remove warning by renaming ```componentWillReceiveProps``` to ```UNSAFE_componentWillReceiveProps```
+1. Remove warning by renaming `componentWillReceiveProps` to `UNSAFE_componentWillReceiveProps`
 
 v1.1.0
 
 ### BREAKING CHANGES:
+
 1. Remove `rn-fetch-blob` for `react-native-blob-util` because of [this issue](https://github.com/RonRadtke/react-native-blob-util/issues/86).
 
 v1.0.7
@@ -48,9 +56,9 @@ v1.0.7
 
 v1.0.6
 
-1. add static method ```CachedImage.isUrlCached(url,success=(cachFile)=>void,fail=(error)=>void))```
-2. add static method ```CachedImage.getCacheFilename(url)```
-3. add static property ```CachedImage.cacheDir```, user can use to set customized cacheDir
+1. add static method `CachedImage.isUrlCached(url,success=(cachFile)=>void,fail=(error)=>void))`
+2. add static method `CachedImage.getCacheFilename(url)`
+3. add static property `CachedImage.cacheDir`, user can use to set customized cacheDir
 
 v1.0.5
 
@@ -74,14 +82,13 @@ v1.0.0
 
 [[more]](https://github.com/wonday/react-native-image-cache-wrapper/releases)
 
-
 ### Configuration
 
-| Property      | Type          | Default          | Description         | FirstRelease |
-| ------------- |:-------------:|:----------------:| ------------------- | ------------ |
-| ```<Image/>``` or ```<ImageBackground>``` properties        |         |     | same with ```<Image/>``` and ```<ImageBackground/>``` | 1.0 |
-| expiration    | number        | 604800           | expiration seconds (0:no expiration, default cache a week) | 1.0 |
-| activityIndicator | Component | null | when loading show it as an indicator, you can use your component| 1.0 |
+| Property                                     |   Type    | Default | Description                                                      | FirstRelease |
+| -------------------------------------------- | :-------: | :-----: | ---------------------------------------------------------------- | ------------ |
+| `<Image/>` or `<ImageBackground>` properties |           |         | same with `<Image/>` and `<ImageBackground/>`                    | 1.0          |
+| expiration                                   |  number   | 604800  | expiration seconds (0:no expiration, default cache a week)       | 1.0          |
+| activityIndicator                            | Component |  null   | when loading show it as an indicator, you can use your component | 1.0          |
 
 ### Usage
 
@@ -109,10 +116,11 @@ render()
 Get the image size, if no cache, will cache it.
 
 Example:
+
 ```
 import CachedImage from 'react-native-image-cache-wrapper';
 
-CachedImage.getSize("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png", 
+CachedImage.getSize("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png",
     (width,height)=>{
         console.log("width:"+width+" height:"+height);
     },(error)=>{
@@ -125,11 +133,12 @@ CachedImage.getSize("https://assets-cdn.github.com/images/modules/logos_page/Oct
 prefetch an image and cache it.
 
 Example:
+
 ```
 import CachedImage from 'react-native-image-cache-wrapper';
 
 // prefetch and cache image 3600 seconds
-CachedImage.prefetch("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png", 3600, 
+CachedImage.prefetch("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png", 3600,
     (cacheFile)=>{
         console.log("cache filename:"+cacheFile);
     },(error)=>{
@@ -142,6 +151,7 @@ CachedImage.prefetch("https://assets-cdn.github.com/images/modules/logos_page/Oc
 delete a cache file.
 
 Example:
+
 ```
 import CachedImage from 'react-native-image-cache-wrapper';
 
@@ -154,6 +164,7 @@ CachedImage.deleteCache("https://assets-cdn.github.com/images/modules/logos_page
 clear all cache.
 
 Example:
+
 ```
 import CachedImage from 'react-native-image-cache-wrapper';
 
@@ -166,6 +177,7 @@ CachedImage.clearCache();
 check if a url is cached.
 
 Example:
+
 ```
 import CachedImage from 'react-native-image-cache-wrapper';
 
@@ -180,6 +192,7 @@ CachedImage.isUrlCached(url,(exists)=>{
 make a cache filename.
 
 Example:
+
 ```
 import CachedImage from 'react-native-image-cache-wrapper';
 
@@ -192,15 +205,10 @@ let cachedFilename = CachedImage.getCacheFilename(url);
 the property that can get/set cacheDir
 
 Example:
+
 ```
 import CachedImage from 'react-native-image-cache-wrapper';
 
 // check if a url is cached.
 CachedImage.cacheDir = RNFetchBlob.fs.dirs.CacheDir + "/CachedImage/";
 ```
-
-
-
-
-
-
