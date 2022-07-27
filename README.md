@@ -19,7 +19,7 @@ We use [`react-native-blob-util`](https://github.com/FidMe/react-native-image-ca
 So you should install react-native-image-cache-wrapper and react-native-blob-util both.
 
 ```bash
-npm install react-native-image-cache-wrapper --save
+npm install @fidme/react-native-image-cache-wrapper --save
 
 npm install react-native-blob-util --save
 react-native link react-native-blob-util
@@ -28,7 +28,7 @@ react-native link react-native-blob-util
 or use yarn
 
 ```
-yarn add react-native-image-cache-wrapper
+yarn add @fidme/react-native-image-cache-wrapper
 yarn add react-native-blob-util
 ```
 
@@ -89,7 +89,7 @@ v1.0.0
 ### Usage
 
 ```
-import CachedImage from 'react-native-image-cache-wrapper';
+import CachedImage from '@fidme/react-native-image-cache-wrapper';
 
 render()
 {
@@ -114,7 +114,7 @@ Get the image size, if no cache, will cache it.
 Example:
 
 ```
-import CachedImage from 'react-native-image-cache-wrapper';
+import CachedImage from '@fidme/react-native-image-cache-wrapper';
 
 CachedImage.getSize("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png",
     (width,height)=>{
@@ -131,7 +131,7 @@ prefetch an image and cache it.
 Example:
 
 ```
-import CachedImage from 'react-native-image-cache-wrapper';
+import CachedImage from '@fidme/react-native-image-cache-wrapper';
 
 // prefetch and cache image 3600 seconds
 CachedImage.prefetch("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png", 3600,
@@ -149,7 +149,7 @@ delete a cache file.
 Example:
 
 ```
-import CachedImage from 'react-native-image-cache-wrapper';
+import CachedImage from '@fidme/react-native-image-cache-wrapper';
 
 // prefetch and cache image 3600 seconds
 CachedImage.deleteCache("https://assets-cdn.github.com/images/modules/logos_page/Octocat.png");
@@ -162,7 +162,7 @@ clear all cache.
 Example:
 
 ```
-import CachedImage from 'react-native-image-cache-wrapper';
+import CachedImage from '@fidme/react-native-image-cache-wrapper';
 
 // prefetch and cache image 3600 seconds
 CachedImage.clearCache();
@@ -175,7 +175,7 @@ check if a url is cached.
 Example:
 
 ```
-import CachedImage from 'react-native-image-cache-wrapper';
+import CachedImage from '@fidme/react-native-image-cache-wrapper';
 
 // check if a url is cached.
 CachedImage.isUrlCached(url,(exists)=>{
@@ -190,7 +190,7 @@ make a cache filename.
 Example:
 
 ```
-import CachedImage from 'react-native-image-cache-wrapper';
+import CachedImage from '@fidme/react-native-image-cache-wrapper';
 
 // check if a url is cached.
 let cachedFilename = CachedImage.getCacheFilename(url);
@@ -203,7 +203,7 @@ the property that can get/set cacheDir
 Example:
 
 ```
-import CachedImage from 'react-native-image-cache-wrapper';
+import CachedImage from '@fidme/react-native-image-cache-wrapper';
 
 // check if a url is cached.
 CachedImage.cacheDir = RNFetchBlob.fs.dirs.CacheDir + "/CachedImage/";
