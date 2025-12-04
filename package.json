@@ -25,7 +25,7 @@
     "url": "https://github.com/wonday/react-native-image-cache-wrapper/issues"
   },
   "dependencies": {
-    "crypto-js": "^3.1.9-1"
+    "crypto-js": "^4.2.0"
   },
   "peerDependencies": {
     "react-native-blob-util": "^0.13.18"
