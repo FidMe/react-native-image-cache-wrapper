@@ -7,14 +7,19 @@
  */
 "use strict";
 
-import { Image, ImageBackground, Platform, View } from "react-native";
-import React, { Component } from "react";
+import {Component} from "react";
+import {Image, ImageBackground, Platform, View} from "react-native";
 
 import ReactNativeBlobUtil from "react-native-blob-util";
 
-const SHA1 = require("crypto-js/sha1");
 
 const defaultImageTypes = ["png", "jpeg", "jpg", "gif", "bmp", "tiff", "tif"];
+
+const sha1 = async (message) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(message);
+    return await crypto.subtle.digest("SHA-256", data);
+}
 
 export default class CachedImage extends Component {
   static defaultProps = {
@@ -42,7 +47,7 @@ export default class CachedImage extends Component {
   /**
    * check if a url is cached
    */
-  static isUrlCached = (url: string, success: Function, failure: Function) => {
+  static isUrlCached = (url, success, failure) => {
     const cacheFile = _getCacheFilename(url);
     ReactNativeBlobUtil.fs
       .exists(cacheFile)
@@ -69,7 +74,7 @@ export default class CachedImage extends Component {
    * @param success callback (width,height)=>{}
    * @param failure callback (error:string)=>{}
    */
-  static getSize = (url: string, success: Function, failure: Function) => {
+  static getSize = (url, success, failure) => {
     CachedImage.prefetch(
       url,
       0,
@@ -92,14 +97,14 @@ export default class CachedImage extends Component {
    *
    * @param url
    * @param expiration if zero or not set, no expiration
-   * @param success callback (cacheFile:string)=>{}
+   * @param success callback (cacheFile: string)=>{}
    * @param failure callback (error:string)=>{}
    */
   static prefetch = (
-    url: string,
-    expiration: number,
-    success: Function,
-    failure: Function
+    url,
+    expiration,
+    success,
+    failure
   ) => {
     // source invalidate
     if (!url || url.toString() !== url) {
@@ -266,7 +271,7 @@ function _getCacheFilename(url) {
 
   let ext = url.replace(/.+\./, "").toLowerCase();
   if (defaultImageTypes.indexOf(ext) === -1) ext = "png";
-  let hash = SHA1(url);
+  const hash = sha1(url);
   return CachedImage.cacheDir + hash + "." + ext;
 }
 
@@ -275,13 +280,13 @@ function _getCacheFilename(url) {
  *
  *
  * @param url
- * @param success callback (cacheFile:string)=>{}
+ * @param success callback (cacheFile: string)=>{}
  * @param failure callback (error:string)=>{}
  */
 async function _saveCacheFile(
-  url: string,
-  success: Function,
-  failure: Function
+  url,
+  success,
+  failure
 ) {
   try {
     const isNetwork = !!(url && url.match(/^https?:\/\//));
