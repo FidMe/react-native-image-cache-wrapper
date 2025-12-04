@@ -24,19 +24,14 @@
   "bugs": {
     "url": "https://github.com/wonday/react-native-image-cache-wrapper/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
+  },
   "peerDependencies": {
     "react-native-blob-util": "^0.13.18"
   },
   "homepage": "https://github.com/wonday/react-native-image-cache-wrapper#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/react": "^19.2.7",
-    "@types/react-native": "^0.73.0",
-    "@types/react-test-renderer": "^19.1.0",
-    "typescript": "^5.9.3"
   }
 }
